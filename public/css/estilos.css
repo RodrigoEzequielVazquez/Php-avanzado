@@ -1,0 +1,58 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+
+}
+
+header div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header div img{
+    width: 10rem;
+}
+
+header div p{
+    width: 10rem;
+}
+
+nav ul{
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+h1{
+    text-align: center;
+    padding: 2rem;
+}
+
+#contenedorInicio{
+    display: flex;
+    justify-content: center;
+}
+
+.cardsInicio{
+
+    display:  flex;
+    flex-direction: column;
+    width: 20rem;
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+    padding-top: 3rem;
+
+}
+
+.cardsInicio img{
+
+ width: 200px;
+ height: 250px;
+    
+}
