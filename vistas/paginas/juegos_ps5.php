@@ -11,7 +11,7 @@
 
     <h1>Juegos PS5</h1>
 
-    <section>
+    <section class="prodSection">
 
         <?php
         

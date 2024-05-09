@@ -6,7 +6,6 @@ if (!isset($_SESSION["validarIngreso"])) {
     echo '<script> window.location = "index.php?ruta=ingreso"; </script>';
 
     return;
-
 } else {
     if ($_SESSION["validarIngreso"] != "ok") {
         echo '<script> window.location = "index.php?ruta=ingreso"; </script>';
@@ -19,45 +18,6 @@ $usuarios = ControladorFormularios::ctrSeleccionarRegistros(null, null);
 
 ?>
 
-<h1>Inicio</h1>
-
-<table>
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>nombre</th>
-            <th>Email</th>
-            <th>Fecha</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($usuarios as $key => $value) : ?>
-            <tr>
-                <td><?php echo ($key + 1); ?></td>
-                <td><?php echo $value["nombre"]; ?></td>
-                <td><?php echo $value["email"]; ?></td>
-                <td><?php echo $value["fecha"]; ?></td>
-                <td>
-                    <div>
-                        <a href="index.php?ruta=editar&id=<?php echo $value["id"]; ?>" class="boton_editar"> Editar </a>
-
-                        <form method="post">
-
-                            <input type="hidden" value="<?php echo $value["id"]; ?>" name="eliminarRegistro">
-                            <button type="submit" class="boton_borrar"> Borrar </button>
-                        </form>
-
-                    </div>
-                </td>
-            </tr>
-
-        <?php endforeach ?>
-    </tbody>
-</table>
-
-
-<!-- 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,9 +28,55 @@ $usuarios = ControladorFormularios::ctrSeleccionarRegistros(null, null);
 </head>
 
 <body>
+    <h1>Inicio</h1>
+
+    <div id="tableContainer">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>nombre</th>
+                    <th>Email</th>
+                    <th>Fecha</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($usuarios as $key => $value) : ?>
+                    <tr>
+                        <td><?php echo ($key + 1); ?></td>
+                        <td><?php echo $value["nombre"]; ?></td>
+                        <td><?php echo $value["email"]; ?></td>
+                        <td><?php echo $value["fecha"]; ?></td>
+                        <td>
+                            <div id="btnsTabla">
+                                <a href="index.php?ruta=editar&id=<?php echo $value["id"]; ?>" class="boton_editar"> Editar </a>
+
+                                <form method="post">
+
+                                    <input type="hidden" value="<?php echo $value["id"]; ?>" name="eliminarRegistro">
+                                    <button type="submit" class="boton_borrar"> Borrar </button>
+
+                                    <?php
+
+                                    $eliminar = new ControladorFormularios();
+                                    $eliminar->ctrEliminarRegistro();
+
+                                    ?>
+                                </form>
+
+                            </div>
+                        </td>
+                    </tr>
+
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </div>
 
 
-    <body id="contenedorInicio">
+    <section id="contenedorInicio">
         <div class="cardsInicio">
             <p>Xbox Series X y Series S</p>
             <img src="./public/img/xbox.jpg" alt="">
@@ -81,7 +87,8 @@ $usuarios = ControladorFormularios::ctrSeleccionarRegistros(null, null);
             <img src="./public/img/ps5.jpg" alt="">
             <p>PlayStation 5 (oficialmente abreviada como PS5) es la quinta consola de videojuegos de sobremesa desarrollada por la empresa Sony Interactive Entertainment, a la vez que es la tercera consola de Sony en ser diseñada por Mark Cerny. Fue anunciada en diciembre de 2019 como la sucesora de la PlayStation 4. Se lanzó el 12 de noviembre de 2020 en Australia, Japón, Nueva Zelanda, Estados Unidos, Canadá, México y Corea del Sur, y en la semana siguiente en el resto del mundo. La PlayStation 5 junto con la Xbox Series X|S de Microsoft, lanzada el mismo mes, son parte de la novena generación de consolas de videojuegos.</p>
         </div>
-    </body>
+    </section>
 </body>
 
-</html> -->
+
+</html>

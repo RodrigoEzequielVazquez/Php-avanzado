@@ -11,7 +11,7 @@
 
     <h1>Juegos Xbox</h1>
 
-    <section>
+    <section class="prodSection">
 
         <?php
 

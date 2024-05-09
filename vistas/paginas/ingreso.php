@@ -1,11 +1,11 @@
-<div>
+<div  class="forms">
 
     <form method="post" class="form">
 
         <div>
 
-            <label for="email">Email:</label>
-            <input type="email" class="" id="email" name="ingresoEmail">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="" id="nombre" name="ingresoNombre">
 
             <label for="password">Contraseña:</label>
             <input type="password" class="" id="password" name="ingresoPassword">
@@ -15,7 +15,7 @@
             $ingreso->ctrIngreso();
             ?>
 
-            <input type="submit" value="enviar" class="enviar">
+            <input type="submit" value="Enviar" class="enviar">
 
         </div>
     </form>
